@@ -6,7 +6,42 @@
              xmlns:local="clr-namespace:ExamTwoQuestions.PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="Viewbox">
+            <Setter Property="Height" Value="40"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <TextBlock>Customize Cobbler</TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="40">Customize Cobbler</TextBlock>
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <TextBlock FontSize="40">Fruit Filling</TextBlock>
+            <Viewbox HorizontalAlignment="Left">
+                <RadioButton GroupName="Fruit" Name="Blueberry">Blueberry</RadioButton>
+            </Viewbox>
+            <Viewbox HorizontalAlignment="Left">
+                <RadioButton GroupName="Fruit" Name="Cherry">Cherry</RadioButton>
+            </Viewbox>
+            <Viewbox HorizontalAlignment="Left">
+                <RadioButton GroupName="Fruit" Name="Peach">Peach</RadioButton>
+            </Viewbox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBlock FontSize="40">Ice Cream</TextBlock>
+            <Viewbox HorizontalAlignment="Left">
+                <RadioButton GroupName="IceCream" Name="Yes">Yes</RadioButton>
+            </Viewbox>
+            <Viewbox HorizontalAlignment="Left">
+                <RadioButton GroupName="IceCream" Name="No">No</RadioButton>
+            </Viewbox>
+        </StackPanel>
+        <TextBlock Name="Price" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="40" Text="{Binding Path=Price, StringFormat=c}"/>
     </Grid>
 </UserControl>
